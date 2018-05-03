@@ -1,0 +1,15 @@
+#!/usr/bin/lua
+
+local uci = require('luci.model.uci').cursor()
+
+local branch = uci:get('autoupdater', 'settings', 'branch')
+
+if branch == 'ipv6' then
+  uci:set('autoupdater', 'settings', 'branch', 'stable')
+end
+
+if uci:get('autoupdater', 'ipv6') then
+  uci:delete('autoupdater', 'ipv6')
+end
+
+uci:save('autoupdater')
