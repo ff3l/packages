@@ -1,6 +1,6 @@
 #!/usr/bin/lua
 
-local uci = require('luci.model.uci').cursor()
+local uci = require('simple-uci').cursor()
 
 local branch = uci:get('autoupdater', 'settings', 'branch')
 
@@ -8,8 +8,16 @@ if branch == 'ipv6' then
   uci:set('autoupdater', 'settings', 'branch', 'stable')
 end
 
+if branch == 'beta' then
+  uci:set('autoupdater', 'settings', 'branch', 'experimental')
+end
+
 if uci:get('autoupdater', 'ipv6') then
   uci:delete('autoupdater', 'ipv6')
+end
+
+if uci:get('autoupdater', 'beta') then
+  uci:delete('autoupdater', 'beta')
 end
 
 uci:save('autoupdater')
