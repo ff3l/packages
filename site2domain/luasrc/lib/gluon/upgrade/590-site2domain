@@ -27,6 +27,8 @@ elseif sitecode == 'ff3l-nalb' then
   domain = 'nalb'
 elseif sitecode == 'ff3l-ng' then
   domain = 'ffng'
+elseif sitecode == 'fftut' then
+  domain = 'fftut'
 else
   domain = 'default'
 end

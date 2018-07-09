@@ -24,7 +24,7 @@ define Build/Compile
 	$(call GluonSrcDiet,./luasrc,$(PKG_BUILD_DIR)/luadest/)
 endef
 
-define Package/ipv6-to-stable/install
+define Package/site2domain/install
 	$(CP) $(PKG_BUILD_DIR)/luadest/* $(1)/
 endef
 
