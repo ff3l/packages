@@ -1,0 +1,11 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "Don't use API to get Domain"
+msgstr ""
+
+msgid ""
+"Your node can switch its domain automatically by asking an "
+"API for the correct domain for the geo coordinates. "
+"If you would not like this behaviour, you can disable it here."
+msgstr ""
