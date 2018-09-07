@@ -23,8 +23,12 @@ local currentdomain=uci:get("gluon","core","domain")
 local nodeid = require('gluon.util').node_id()
 local lat = uci:get("gluon-node-info","@location[0]","latitude")
 local lon = uci:get("gluon-node-info","@location[0]","longitude")
-local url=geoapiurl .. lat .. "," .. lon
-local geoseg = io.popen("wget -q -O - '" .. url .. "'"):read('*a')
+if (lat ~= nil and lon ~=nil and lat ~= "" and lon ~="") then
+  local url=geoapiurl .. lat .. "," .. lon
+  geoseg = io.popen("wget -q -O - '" .. url .. "'"):read('*a')
+else
+  geoseg = ""
+end
 local url=directorurl .. nodeid
 local manseg = io.popen("wget -q -O - '" .. url .. "'"):read('*a')
 io.write('Current Domain: ' .. currentdomain .. '\nNodeID: ' .. nodeid .. '\nRequested Domain: ' .. manseg .. '\nDomain by Coordinates: ' .. geoseg .. '\n')
