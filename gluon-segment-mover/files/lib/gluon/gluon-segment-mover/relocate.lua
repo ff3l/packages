@@ -28,13 +28,13 @@ local geoseg = io.popen("wget -q -O - '" .. url .. "'"):read('*a')
 local url=directorurl .. nodeid
 local manseg = io.popen("wget -q -O - '" .. url .. "'"):read('*a')
 io.write('Current Domain: ' .. currentdomain .. '\nNodeID: ' .. nodeid .. '\nRequested Domain: ' .. manseg .. '\nDomain by Coordinates: ' .. geoseg .. '\n')
-if (manseg ~= "" ) then
+if (manseg ~= "" or currentdomain=="ref" ) then
   newseg = manseg
 elseif (uci:get('gluon','core','noautodomain') ~= "1") then
   newseg = geoseg
 end
 
-if (currentdomain==newseg or newseg == "" or newseg = nil or newseg == "noop") then
+if (currentdomain==newseg or newseg == "" or newseg == nil or newseg == "noop") then
   io.write("Do nothing..\n")
 else
   if (file_exists('/lib/gluon/domains/' .. newseg .. '.json') == true) then
