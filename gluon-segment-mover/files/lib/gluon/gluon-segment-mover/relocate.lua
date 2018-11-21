@@ -48,6 +48,7 @@ else
     uci:set('gluon','core','domain',newseg)
     uci:save('gluon')
     uci:commit('gluon')
+    os.execute('sleep 660')
     os.execute('/usr/bin/gluon-reconfigure')
     io.popen('lock -u ' .. autoupdaterlockfile)
     io.popen('reboot')
