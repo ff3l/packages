@@ -52,10 +52,9 @@ else
     uci:set('gluon','core','domain',newseg)
     uci:save('gluon')
     uci:commit('gluon')
-    os.execute('sleep 660')
     os.execute('/usr/bin/gluon-reconfigure')
     io.popen('lock -u ' .. autoupdaterlockfile)
-    io.popen('reboot')
+    io.popen('/usr/bin/gluon-reload')
   else
     io.write('Invalid Domain requested. I don\'t have ' .. newseg .. '.conf')
     do return end
