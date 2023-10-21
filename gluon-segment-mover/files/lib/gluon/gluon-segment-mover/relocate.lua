@@ -49,12 +49,7 @@ else
       do return end
     end
     os.execute('logger -s -t "gluon-segment-mover" -p 5 "Domain Change requested. Moving to "' .. newseg)
-    uci:set('gluon','core','domain',newseg)
-    uci:save('gluon')
-    uci:commit('gluon')
-    os.execute('/usr/bin/gluon-reconfigure')
-    io.popen('lock -u ' .. autoupdaterlockfile)
-    io.popen('/usr/bin/gluon-reload')
+    os.execute('/usr/bin/gluon-switch-domain "' .. newseg .. '"')
   else
     io.write('Invalid Domain requested. I don\'t have ' .. newseg .. '.conf')
     do return end
