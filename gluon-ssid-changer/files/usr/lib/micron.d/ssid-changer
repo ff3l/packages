@@ -1,2 +1,2 @@
-* * * * * [ -e /var/run/hostapd-phy* ] && /lib/gluon/ssid-changer/ssid-changer.sh
+* * * * * [ -e /var/run/hostapd-* ] && /lib/gluon/ssid-changer/ssid-changer.sh
 
