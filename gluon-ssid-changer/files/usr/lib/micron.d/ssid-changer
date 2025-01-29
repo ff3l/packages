@@ -1,1 +1,1 @@
-* * * * * ls /var/run/hostapd-2* &>/dev/null && /lib/gluon/ssid-changer/ssid-changer.sh
+* * * * * ls /var/run/hostapd-* &>/dev/null && /lib/gluon/ssid-changer/ssid-changer.sh
